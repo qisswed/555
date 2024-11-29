@@ -12,7 +12,7 @@ const tasksSlice = createSlice({
                 id: Date.now(),
                 title: action.payload,
                 timeSpent: 0,
-                status: 'active' // Статус задачи по умолчанию "активный"
+                status: 'active'
             });
         },
         setActiveTask: (state, action) => {
@@ -29,20 +29,20 @@ const tasksSlice = createSlice({
         completeTask: (state) => {
             const task = state.tasks.find(task => task.id === state.activeTask);
             if (task) {
-                task.status = 'completed'; // Завершаем задачу
+                task.status = 'completed'; 
             }
             state.activeTask = null;
         },
         pauseTask: (state) => {
             const task = state.tasks.find(task => task.id === state.activeTask);
             if (task) {
-                task.status = 'paused'; // Пауза задачи
+                task.status = 'paused'; 
             }
         },
         resumeTask: (state) => {
             const task = state.tasks.find(task => task.id === state.activeTask);
             if (task) {
-                task.status = 'active'; // Возобновляем задачу
+                task.status = 'active'; 
             }
         }
     }
